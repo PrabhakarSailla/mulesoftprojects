@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="69b9c42f-ad44-48b3-958f-24bf609fc4a8" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:listener-config name="HTTP_Listener_config1" doc:name="HTTP Listener config" doc:id="8ae46e03-0ef4-44e3-986a-be3557f514fd" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="helloworld-pocFlow" doc:id="e7771f35-b429-4ab4-8867-853fcf9336d1" >
+		<http:listener doc:name="Listener" doc:id="274ac0c2-1cdd-481a-802c-93fa10743e26" config-ref="HTTP_Listener_config1" path="/helloworld"/>
+		<logger level="INFO" doc:name="Logger" doc:id="cd2aa5f1-18b0-4eaa-af59-866b1a2469ba" message="hello world"/>
+	</flow>
+</mule>
